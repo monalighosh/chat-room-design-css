@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- title and meta -->
+	<meta charset="utf-8">
+	<title>Collaboration.Modern Developer</title>
+	<meta name="description" content="Collaboration.Modern Developer, a full collaboration, communication, and chat platform for developers.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- google fonts-->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,300italic|Roboto+Slab:400,300,700,100' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+
+    <!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+    <!-- start chat room wrapper-->
+    <div id="chatWrapper">
+    <!-- start chat room container-->
+    <div id="chatMainContainer">
+
+    <!-- start close settings butt row -->
+    <div id="row">
+        <div id="cell"></div>
+        <div id="cell">
+	        <h2 class="btn-close-sett"><a class="grey-tx" href="#">close settings</a></h2>
+        </div>
+     </div>
+    <!-- end close settings butt row -->
+
+    <!-- start navigation row -->
+    <div id="row">
+    <div id="navChat">
+        <ul>
+	       <li class="btn-chat"><a href="#">Chat</a></li>
+	       <li class="btn-screen-sharing"><a href="#">Screen Sharing</a></li>
+	       <li><a href="#">+ add panel</a></li>
+        </ul>
+    </div>
+
+    <div id="navCodeEditor">
+        <ul>
+	       <li class="btn-code-editor"><a href="#">Code Editor</a></li>
+	       <li><a href="#">+ add panel</a></li>
+        </ul>
+    </div>
+    </div>
+    <!-- end navigation row -->
+
+    <!-- start chat room row -->
+    <div id="row">
+    <!-- start cell left -->
+    <div id="cell" class="chat-panel-shadow">
+    <!-- start chat panel -->
+	<div id="chatPanel">
+		    <section>
+		    	<div id="chatWindow">
+		    	<!-- start chat history -->
+                <div id="chatHistory">
+                    <div>
+            	        <div class="img-wrapper">
+                            <div class="online-status-green"></div>            	        
+                            <img class="left-align-avatar" src="images/avatar-2.jpg">
+            	        </div>
+		                <div class="chat-message-box light-blue-box">
+                            <h2 class="blue-tx">Alexander Smith</h2>
+                            <span class="right-align-span grey-tx">16 min ago</span>
+                            <p>I noticed it yesterday only, and before reading your article. I wonder if they aren't only now starting to roll it out completely (and may be coded the feature back in November).</p>
+		                </div>
+                    </div>
+
+                    <div>
+                        <div class="img-wrapper">
+                            <img class="left-align-avatar" src="images/avatar-3.jpg">
+            	        </div>
+		                <div class="chat-message-box purple-box">
+                            <h2 class="purple-tx">Anna Pearson</h2>
+                            <span class="right-align-span grey-tx">12 min ago</span>
+                            <p>This is important stuff. Does it have a Wikipedia entry yet?</p>
+		                </div>
+                    </div>
+
+                    <div>
+                        <div class="img-wrapper">
+                            <div class="online-status-yellow"></div>            	        
+                            <img class="right-align-avatar" src="images/avatar-1.jpg">
+            	        </div>
+		                <div class="chat-message-box white-box">
+                            <h2 class="float-right">James Morrison</h2>
+                            <span class="left-align-span grey-tx">12 min ago</span>
+                            <p>It's there from a long time......2+ years back,<br/> I came to know about this via littlebigdetails.com</p>
+		                </div>
+                    </div>
+            
+                    <div class="clear">
+		                <div class="img-wrapper">
+                            <div class="online-status-green"></div>            	        
+                            <img class="left-align-avatar" src="images/avatar-2.jpg">
+            	        </div>
+		                <div class="chat-message-box light-blue-box">
+                            <h2 class="blue-tx">Alexander Smith</h2>
+                            <span class="right-align-span grey-tx">5 min ago</span>
+                            <p>Video testimonials can be recorded from anywhere with the Modulates video recorder and then uploaded from anywhere. </p>
+		                </div>
+                    </div>
+
+                </div>
+                <!-- end chat history -->
+
+                <!-- start chat history scrollbar -->
+                <div id="chatScrollbar">
+                    <div id="chatScrollbarThumb"></div>
+                </div>
+                <!-- end chat history scrollbar -->
+            </div>
+            <!-- end chat window -->
+
+                <!-- start chat send new message -->
+                <div id="chatSendNew">
+                    <div id="chatSendNewBox">
+            	    <img class="left-align-avatar" src="images/avatar-1.jpg">
+		            <div class="chat-message-box light-grey-box"><h3 class="light-grey-tx">Say something...</h3></div>
+                    </div>
+                    <button class="btn-send">Send</button>
+                </div>
+                <!-- end chat send new message -->
+        </section>
+
+	</div>
+	<!-- end chat panel -->
+</div>
+<!-- end cell left -->
+
+<!-- start cell right -->
+<div id="cell" class="code-editor-bg">
+    <!-- start code editor panel -->
+	<div id="codeEditorPanel">
+		<section>  
+            <div id="editorScrollbarTrack">
+                <div id="editorScrollbarThumb">
+    	            <div class="vertical-line"></div>
+    	            <div class="vertical-line"></div>
+    	            <div class="vertical-line"></div>
+                </div>
+                <div id="numbersPanel">1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20<br/>21<br/>22<br/>23<br/>24<br/>25<br/>26<br/>27<br/>28<br/>29<br/>30</div>
+            </div><div id="codePanel">
+	                <pre><code>&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+&lt;title>Ace in Action</title>
+&lt;style type="text/css" media="screen">
+	#editor {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+&lt;/style>
+&lt;/head>
+&lt;body>
+	
+&lt;div id="editor">function foo(items) {
+     var x = "All this is syntax highlighted";
+     return x;
+}&lt;/div>
+
+&lt;script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" 
+charset="utf-8"></script>
+&lt;script>
+	var editor = ace.edit("editor");
+	editor.setTheme("ace/theme/monokai");
+	editor.getSession().setMode("ace/mode/javascript");
+&lt;/script>
+&lt;/body>	
+&lt;/html></code></pre>
+        </section>    
+	</div>
+	<!-- end code editor panel -->
+   </div>
+   <!-- end cell right -->
+   </div>
+   <!-- end chat room row two -->
+   </div>
+   <!-- end chat room container -->
+   </div>
+   <!-- end chat room wrapper -->
+</body>
+</html>

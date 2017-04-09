@@ -1,0 +1,596 @@
+/*
+Description: Collaboration Modern Developer
+Author: Monali Ghosh, Evgeni Yakobson 
+Tags: UI, Communication, Chat Platform
+*/
+
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Global reset
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, cite, code, del, em, img, q, samp, small, strike, strong, sub, sup, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, input, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  font-size: 100%;
+  font: inherit;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+html {
+  background: #f1f6f9;
+}
+body {
+  line-height: 1.4;
+}
+ul, ol {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+a, a:visited, a:hover, a:active {
+  text-decoration: none;
+  cursor: pointer;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* General styles
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #000;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+h1 {
+  font-size: 18px;
+}
+h2, h3 {
+  font-size: 16px;
+}
+h2 {
+  display: inline-block;
+}
+p {
+  margin-top: 9px;
+}
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.clear {
+  clear: both;
+}
+
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|*  Typography and colors styles
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+
+.blue-tx {
+  color: #6486ea;
+}
+.light-grey-tx {
+  color: #bdc8cf;
+}
+.grey-tx {
+  color: #b0bbc7;
+}
+.purple-tx {
+  color: #ba7fcb;
+}
+
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|*  Chat room structure
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+
+#chatWrapper {
+  width: 100%;
+  background: #f1f6f9;
+  padding-bottom: 65px
+}
+#chatMainContainer {
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  display: table;
+}
+#row {
+  display: table-row;
+}
+#cell, #navChat, #navCodeEditor {
+  display: table-cell;
+  min-width: 450px;
+  width: 50%;
+  vertical-align: top;
+}
+#navChat {
+  box-shadow: -5px 15px 20px rgba(205, 213, 225, .5);
+}
+#navCodeEditor {
+  box-shadow: -7px 15px 20px rgba(205, 213, 225, .5);
+}
+#navChat ul, #navCodeEditor ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f1f6f9;
+  font-family: 'Lato', sans-serif;
+}
+#navChat li, #navCodeEditor li {
+  position: relative;
+  float: left;
+  border-radius: 2px 2px 0 0;
+}
+#navChat li:first-child, #navCodeEditor li:first-child {
+  box-shadow: -5px 0 20px rgba(205, 213, 225, .5);
+  z-index: 2;
+}
+#navChat li:last-child, #navCodeEditor li:last-child {
+  float: right;
+}
+#navChat li a, #navCodeEditor li a {
+  display: inline-block;
+  width: 178px;
+  height: 39px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 18px;
+  padding: 7px 16px 7px 0;
+  text-decoration: none;
+  z-index: 1;
+}
+#navChat li a, #navChat li a:visited, #navChat li a:hover, #navChat li a:active {
+  color: #6486ea;
+}
+#navCodeEditor li a, #navCodeEditor li a:visited, #navCodeEditor li a:hover, #navCodeEditor li a:active {
+  color: #f75db9;
+}
+#navChat li:last-child a, #navCodeEditor li:last-child a {
+  font-size: 16px;
+  text-align: right;
+  padding-right: 20px;
+}
+#navChat li:nth-child(2) a {
+  background: #dfe5e8;
+  color: #7c7e80;
+}
+#navChat li:last-child a {
+  color: #6486ea;
+}
+#navCodeEditor li:last-child a {
+  color: #f75db9;
+}
+#navChat ul > li a:after, #navCodeEditor ul > li a:after {
+  content: "x";
+  position: absolute;
+  color: #dadada;
+  font-family: 'Lato', sans-serif;
+  text-align: right;
+  font-size: 20px;
+  right: 12px;
+  line-height: 18px;
+}
+#navChat ul > li:nth-child(2) a:after {
+  color: #bdc2c5;
+}
+#navChat ul > li:last-child a:after, #navCodeEditor ul > li:last-child a:after {
+  display: none;
+}
+#chatPanel, #codeEditorPanel {
+  width: 100%;
+  position: relative;
+}
+#codeEditorPanel {
+  font-family: 'Ubuntu Mono';
+}
+
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|*  Chat panel elements
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+
+/***** Chat window styles *****/
+
+.chat-panel-shadow {
+  box-shadow: -5px 0 25px rgba(205, 213, 225, .5);
+  background: #fff;
+}
+#chatWindow {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  background: #fff;
+  padding: 0 9px 0 21px;
+  vertical-align: top;
+  overflow: hidden
+}
+#chatHistory {
+  float: left;
+  width: 98%;
+  padding-top: 33px;
+}
+#chatScrollbar {
+  float: right;
+  width: 5px;
+  background: url(../images/chat-panel-scrollbar-bg.jpg);
+}
+#chatHistory, #chatScrollbar {
+  padding-bottom: 99999px;
+  margin-bottom: -99999px;
+}
+.chat-message-box {
+  width: 70%;
+  min-height: 81px;
+  border-radius: 3px;
+  display: inline-block;
+  padding: 17px;
+  position: relative;
+  margin-bottom: 17px;
+}
+#chatHistory > div:nth-child(4) > div:last-child {
+  margin-bottom: 0;
+}
+
+/***** Chat message box arrow styles *****/
+.chat-message-box:before, .chat-message-box:after {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border: 10px solid transparent;
+  top: 22px;
+  margin-top: -10px;
+}
+.chat-message-box:after {
+  left: 100%;
+}
+.chat-message-box:before {
+  right: 100%;
+}
+
+/***** Chat message box styles *****/
+
+/* grey color box */
+.light-grey-box {
+  background: #f7f7f7;
+  margin-bottom: 0;
+}
+.light-grey-box:before {
+  border-right: 10px solid #f7f7f7;
+}
+
+/* purple color box */
+.purple-box {
+  background: #f8eefb;
+}
+.purple-box:before {
+  border-right: 10px solid #f8eefb;
+}
+
+/* blue color box */
+.light-blue-box {
+  background: #e9eefb;
+}
+.light-blue-box:before {
+  border-right: 10px solid #e9eefb;
+}
+
+/* white color box */
+.white-box {
+  background: #fff;
+  border: 1px solid #ced6dc;
+  float: right;
+}
+.white-box:after {
+  border-width: 9px;
+  border-left-color: #fff;
+  top: 24px;
+}
+.white-box:before {
+  border-width: 11px;
+  border-left-color: #ced6dc;
+  top: 22px;
+  left: 100%;
+}
+.white-box p {
+  text-align: right;
+  margin-top: 9px;
+}
+
+/***** Chat message box images styles *****/
+#chatPanel img {
+  border-radius: 2px;
+  width: 48px;
+  height: 48px;
+  clear: both;
+}
+.img-wrapper {
+  position: relative;
+}
+.left-align-avatar {
+  margin-right: 20px;
+  float: left;
+}
+.right-align-avatar {
+  margin-left: 20px;
+  float: right;
+}
+.online-status-green, .online-status-yellow {
+  width: 6px;
+  height: 6px;
+  top: 39px;
+  border-radius: 50%;
+  position: absolute; 
+  z-index: 2;
+}
+.online-status-green {
+  background: #37dc52;
+  left: 39px;
+}
+.online-status-yellow {
+  background: #f2eb2c;
+  right: 3px;
+}
+
+/***** Chat message box text styles *****/
+#chatPanel span {
+  font-size: 13px;
+  margin-top: 2px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  clear: right;
+}
+.right-align-span {
+  display: inline-block;
+  position: absolute;
+  right: 17px;
+}
+.left-align-span {
+  position: relative;
+  left: 0;
+}
+
+/***** Chat window scrollbar styles *****/
+#chatScrollbarTrack {
+  display: inline-block;
+  width: 1px;
+  background: #d9e4ea;
+  margin: 0 10px;
+}
+#chatScrollbarThumb {
+  float: right;
+  width: 4px;
+  height: 148px;
+  border-radius: 10px;
+  background: #d9e4ea;
+  margin-top: 30px;
+  margin-right: 0;
+  position: relative;
+}
+#chatSendNew {
+  position: relative;
+  border-top: 1px solid #dfe6eb;
+  background: #fff;
+  padding: 17px;
+  vertical-align: middle;
+}
+#chatSendNewBox {
+  width: 99%;
+  display: inline-block;
+}
+
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|*  Code editor panel elements
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+
+.code-editor-bg {
+  background: url(../images/code-editor-bg.jpg);
+  box-shadow: -5px 0 25px rgba(205, 213, 225, .5);
+}
+#editorScrollbarTrack {
+  width: 44px;
+  display: inline-block;
+  background: url(../images/code-editor-scroll-num-bg.jpg);
+  height: auto;
+  vertical-align: top;
+  color: #6e6e6e;
+  text-align: right;
+  line-height: 1.3;
+}
+#editorScrollbarThumb {
+  width: 12px;
+  height: 16px;
+  background: #fff;
+  border: 1px solid #d6d6d6;
+  vertical-align: top;
+  position: absolute;
+  top: 293px;
+  border-radius: 2px;
+  margin-left: -3px;
+}
+#editorScrollbarThumb > div {
+  width: 1px;
+  height: 5px;
+  background: #e4e7e9;
+  margin: 5px 0;
+  float: left;
+}
+#editorScrollbarThumb > div:first-child {
+  margin-right: 1px;
+  margin-left: 3px;
+}
+#editorScrollbarThumb > div:last-child {
+  margin-left: 1px;
+}
+#numbersPanel {
+  display: inline-block;
+  float: right;
+  padding: 13px 13px 13px 0;
+}
+#codePanel {
+  display: inline-block;
+  background: #fff;
+  padding: 13px 22px;
+  vertical-align: top;
+  line-height: 1.3;
+}
+pre, code {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  overflow: auto;
+}
+
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Chat room buttons
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+
+.btn-close-sett {
+  float: right;
+  text-align: right;
+  font-family: 'Lato', sans-serif;
+  color: #b5c0cb;
+  padding: 4px 20px 44px 0;
+}
+.btn-chat {
+  border-top: 5px solid #6486ea;
+  background: #fff;
+  color: #6486ea;
+}
+.btn-screen-sharing {
+  border-top: 5px solid #dfe5e8;
+  background: #dfe5e8;
+  color: #7c879a;
+}
+.btn-code-editor {
+  border-top: 5px solid #f75db9;
+  background: #fff;
+  color: #f75db9;
+}
+.btn-send {
+  width: 118px;
+  height: 36px;
+  vertical-align: middle;
+  text-align: center;
+  text-transform: uppercase;
+  background: #6486ea;
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  right: 17px;
+  bottom: 17px;
+  line-height: 30px;
+  font-family: 'Lato', sans-serif;
+}
+
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Media queries
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+
+@media only screen and (min-width:1201px) and (max-width:1450px) {
+  #codePanel {
+    width: 90%;
+  }
+  .btn-send {
+    width: 80px;
+  }
+}
+
+@media only screen and (min-width:400px) and (max-width:1200px) {
+  #navChat ul, #navCodeEditor ul {
+    position: relative;
+    background: #fff;
+  }
+  #navChat li, #navCodeEditor li {
+    width: 100%;
+  }
+  #navChat li a, #navCodeEditor li a {
+    display: block;
+  }
+  #navChat li a, #navCodeEditor li a {
+    text-align: left;
+    padding: 7px 16px;
+  }
+  #navChat li:last-child a, #navCodeEditor li:last-child a {
+    width: 100%;
+    font-size: 16px;
+    text-align: left;
+  }
+  #navChat li:last-child a {
+    border-bottom: 1px solid #e9eefb;
+  }
+  #navCodeEditor li:last-child a {
+    border-bottom: 1px solid #f8eefb;
+  }
+  #codePanel {
+    width: 89%;
+  }
+}
+
+@media only screen and (min-width:1001px) and (max-width:1200px) {
+  #chatMainContainer {
+    width: 95%;
+  }
+  .btn-send {
+    width: 55px;
+  }
+}
+
+@media only screen and (max-width:1000px) {
+  #chatMainContainer {
+    width: 100%;
+    overflow: auto;
+  }
+  .btn-send {
+    width: 55px;
+  }
+}
